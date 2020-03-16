@@ -65,32 +65,32 @@ exports.signup = (req, res) => {
 
 //Log in
 
-exports.login = (req, res) =>{
-    const user = {
-        email: req.body.email,
-        password:req.body.password
-    };
+exports.login = (req, res) => {
+  const user = {
+    email: req.body.email,
+    password: req.body.password
+  };
 
+  const { valid, errors } = validateLoginData(user);
 
-    const {valid, errors } = validateLoginData(user);
+  if (!valid) return res.status(400).json(errors);
 
-    if(!!valid) return res.status(400).json(errors);
-
-    firebase
+  firebase
     .auth()
     .signInWithEmailAndPassword(user.email, user.password)
-    .then(data =>{
-        return data.user.getIdToken();
+    .then((data) => {
+      return data.user.getIdToken();
     })
-    .then ((token) => {
-        return res.json({token});
+    .then((token) => {
+      return res.json({ token });
     })
     .catch((err) => {
-        console.error(err);
-        return res.status(403).json({ error: err.code });
-
+      console.error(err);
+      return res
+        .status(403)
+        .json({ general: 'Wrong credentials, please try again' });
     });
-}
+};
 
 //add user details
 
