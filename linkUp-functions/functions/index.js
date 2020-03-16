@@ -4,7 +4,15 @@ const app = require('express')();
 
 const FBAuth = require('./utilities/FBAuth');
 
-const { getAllPosts, postOnePost, getPost  } = require ('./handlers/posts');
+const { 
+    getAllPosts,
+    postOnePost, 
+    getPost, 
+    commentOnPost,
+    likePost,
+    unlikePost,
+    deletePost
+} = require ('./handlers/posts');
 const{ 
     signup, 
     login, 
@@ -17,11 +25,10 @@ const{
 app.get('/posts', getAllPosts);
 app.post('/post', FBAuth, postOnePost);
 app.get('/post/:postId', getPost);
-
-//delete post
-//like a post
-//unlike a scream
-//comment on post
+app.delete('/post/:postId', FBAuth, deletePost);
+app.get('/post/:postId/like', FBAuth, likePost);
+app.get('/post/:postId/unlike', FBAuth, unlikePost);
+app.post('/post/:postId/comment', FBAuth, commentOnPost)
 
 
 
@@ -34,4 +41,4 @@ app.post('/user', FBAuth, addUserDetails)
 app.get('/user', FBAuth, getAuthenticatedUser);
 
 
- exports.api = functions.https.onRequest(app);
+exports.api = functions.https.onRequest(app);
