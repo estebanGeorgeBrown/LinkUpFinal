@@ -21,12 +21,10 @@ app.post('/user', FBAuth, addUserDetails)
 app.get('/user', FBAuth, getAuthenticatedUser);
 
 
+
 //users routes
 app.post('/signup', signup);
 app.post('/login', login);
-
-
-
 
 
  exports.api = functions.https.onRequest(app);
