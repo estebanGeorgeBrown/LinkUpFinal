@@ -45,7 +45,7 @@ export class signup extends Component {
       .post('/signup', newUserData)
       .then((res) =>{
         console.log(res.data);
-        localStorage.setItem('FBIdToken', 'Bearer ${res.data.token}');
+        localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
           loading: false
       });
