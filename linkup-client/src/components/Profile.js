@@ -61,7 +61,7 @@ class Profile extends Component {
                 hidden="hidden"
                 onChange={this.handleImageChange}
               />
-              <MyButton
+             <MyButton
                 tip="Edit profile picture"
                 onClick={this.handleEditPicture}
                 btnClassName="button"
