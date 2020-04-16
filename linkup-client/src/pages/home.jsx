@@ -9,25 +9,24 @@ import Profile from '../components/Profile';
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions';
 
-export class home extends Component {
-  state = {
-    posts: null
-  }
-  
+class home extends Component {
   componentDidMount(){
-    axios.defaults.baseURL =
-  'https://us-central1-linkup-ed6c5.cloudfunctions.net/api';
+    this.props.getPosts();
+
+    // Alejandro's code from before(6 days ago), looks like this fix isn't needed anymore, I will leave it here for now just in case
+    /*axios.defaults.baseURL = 'https://us-central1-linkup-ed6c5.cloudfunctions.net/api';
     axios.get('/posts')
     .then(res => {
       this.setState({
         posts: res.data
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
   }
   render() {
-    let recentPostsMarkup = this.state.posts ? (
-    this.state.posts.map((post) => <Post key={post.postId} post={post}/>)
+    const { posts, loading } = this.props.data;
+    let recentPostsMarkup = !loading ? (
+    posts.map((post) => <Post key={post.postId} post={post}/>)
     ):( 
       <p>Loading...</p>
       );
