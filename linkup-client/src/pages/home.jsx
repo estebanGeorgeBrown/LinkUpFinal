@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import Grid  from "@material-ui/core/Grid";
 import axios from 'axios'; 
+import PropTypes from 'prop-types'
+
 import Post from '../components/Post';
 import Profile from '../components/Profile';
+
+import { connect } from 'react-redux';
+import { getPosts } from '../redux/actions/dataActions';
 
 export class home extends Component {
   state = {
@@ -39,5 +44,14 @@ export class home extends Component {
   }
 }
 
-export default home;
+home.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  data: state.data
+})
+
+export default connect(mapStateToProps, { getPosts })(home);
  

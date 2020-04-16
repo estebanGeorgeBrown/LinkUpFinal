@@ -1,17 +1,17 @@
 import {
-    SET_SCREAMS,
-    LIKE_SCREAM,
-    UNLIKE_SCREAM,
+    SET_POSTS,
+    LIKE_POST,
+    UNLIKE_POST,
     LOADING_DATA,
-    DELETE_SCREAM,
-    POST_SCREAM,
-    SET_SCREAM,
+    DELETE_POST,
+    POST_POST,
+    SET_POST,
     SUBMIT_COMMENT
   } from '../types';
   
   const initialState = {
-    screams: [],
-    scream: {},
+    posts: [],
+    post: {},
     loading: false
   };
   
@@ -22,48 +22,48 @@ import {
           ...state,
           loading: true
         };
-      case SET_SCREAMS:
+      case SET_POSTS:
         return {
           ...state,
-          screams: action.payload,
+          posts: action.payload,
           loading: false
         };
-      case SET_SCREAM:
+      case SET_POST:
         return {
           ...state,
-          scream: action.payload
+          post: action.payload
         };
-      case LIKE_SCREAM:
-      case UNLIKE_SCREAM:
-        let index = state.screams.findIndex(
-          (scream) => scream.screamId === action.payload.screamId
+      case LIKE_POST:
+      case UNLIKE_POST:
+        let index = state.posts.findIndex(
+          (post) => post.postId === action.payload.postId
         );
-        state.screams[index] = action.payload;
-        if (state.scream.screamId === action.payload.screamId) {
-          state.scream = action.payload;
+        state.posts[index] = action.payload;
+        if (state.post.postId === action.payload.postId) {
+          state.post = action.payload;
         }
         return {
           ...state
         };
-      case DELETE_SCREAM:
-        index = state.screams.findIndex(
-          (scream) => scream.screamId === action.payload
+      case DELETE_POST:
+        index = state.posts.findIndex(
+          (post) => post.postId === action.payload
         );
-        state.screams.splice(index, 1);
+        state.posts.splice(index, 1);
         return {
           ...state
         };
-      case POST_SCREAM:
+      case POST_POST:
         return {
           ...state,
-          screams: [action.payload, ...state.screams]
+          posts: [action.payload, ...state.posts]
         };
       case SUBMIT_COMMENT:
         return {
           ...state,
-          scream: {
-            ...state.scream,
-            comments: [action.payload, ...state.scream.comments]
+          post: {
+            ...state.post,
+            comments: [action.payload, ...state.post.comments]
           }
         };
       default:

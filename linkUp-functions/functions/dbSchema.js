@@ -14,7 +14,7 @@ let db = {
     posts: [
       {
         userHandle: 'user',
-        body: 'This is a sample scream',
+        body: 'This is a sample post',
         createdAt: '2019-03-15T10:59:52.798Z',
         likeCount: 5,
         commentCount: 3
@@ -33,7 +33,7 @@ let db = {
         recipient: 'user',
         sender: 'john',
         read: 'true | false',
-        screamId: 'kdjsfgdksuufhgkdsufky',
+        postId: 'kdjsfgdksuufhgkdsufky',
         type: 'like | comment',
         createdAt: '2019-03-15T10:59:52.798Z'
       }
@@ -54,7 +54,7 @@ let db = {
     likes: [
       {
         userHandle: 'user',
-        screamId: 'hh7O5oWfWucVzGbHH2pa'
+        postId: 'hh7O5oWfWucVzGbHH2pa'
       },
       {
         userHandle: 'user',
