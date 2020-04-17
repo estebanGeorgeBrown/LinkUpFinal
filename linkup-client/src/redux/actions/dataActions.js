@@ -55,7 +55,7 @@ export const postPost = (newPost) => (dispatch) => {
         type: POST_POST,
         payload: res.data,
       });
-      dispatch(clearErrors());
+      dispatch({ type: CLEAR_ERRORS });
     })
     .catch((err) => {
       dispatch({
