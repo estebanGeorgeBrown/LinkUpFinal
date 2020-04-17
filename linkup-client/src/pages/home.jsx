@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Grid  from "@material-ui/core/Grid";
-import axios from 'axios'; 
+import Grid  from "@material-ui/core/Grid"; 
 import PropTypes from 'prop-types'
 
 import Post from '../components/Post';
 import Profile from '../components/Profile';
+
 
 import { connect } from 'react-redux';
 import { getPosts } from '../redux/actions/dataActions';

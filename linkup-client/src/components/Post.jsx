@@ -74,7 +74,7 @@ export class Post extends Component {
           <Typography
             variant="h5"
             component={Link}
-            to={"/users/${userHnadle}"}
+            to={`/users/${userHandle}`}
             color="primary"
           >
             {userHandle}
@@ -87,7 +87,6 @@ export class Post extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>
-
           <LikeButton postId={postId}/>
           <span>{likeCount}</span>
           <MyButton tip="comments">
