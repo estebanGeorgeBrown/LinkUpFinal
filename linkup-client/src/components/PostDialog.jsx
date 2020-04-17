@@ -62,9 +62,9 @@ class PostDialog extends Component {
     let oldPath = window.location.pathname;
 
     const { userHandle, postId } = this.props;
-    const newPath = `/users/${userHandle}/post/${postId}`;
+    const newPath = `/user/${userHandle}/post/${postId}`;
 
-    if (oldPath === newPath) oldPath = `/users/${userHandle}`;
+    if (oldPath === newPath) oldPath = `/user/${userHandle}`;
 
     window.history.pushState(null, null, newPath);
 
@@ -107,7 +107,7 @@ class PostDialog extends Component {
             component={Link}
             color="primary"
             variant="h5"
-            to={`/users/${userHandle}`}
+            to={`/user/${userHandle}`}
           >
             @{userHandle}
           </Typography>

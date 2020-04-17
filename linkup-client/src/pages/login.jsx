@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
-import AppIcon from '../images/logo192.png';
+import AppIcon from '../images/linkup-icon.png';
 import { Link } from 'react-router-dom';
 
 //MUI Stuff
