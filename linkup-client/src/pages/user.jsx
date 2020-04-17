@@ -28,7 +28,7 @@ class user extends Component {
       .then((res) => {
         this.setState({
           profile: res.data.user
-        });
+        })
       })
       .catch((err) => console.log(err));
   }
